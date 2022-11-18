@@ -72,7 +72,7 @@ class Data {
         this.bcAdditionalInfo});
 
   Data.fromJson(Map<dynamic, dynamic> json) {
-    id = json['id'];
+    id = json['id'].toString();
     name = json['name'];
     descriptionLong = json['descriptionLong'];
     description = json['description'];
@@ -80,7 +80,7 @@ class Data {
     inStock = json['inStock'];
     supplierName = json['supplierName'];
     mainDetailid = json['mainDetailid'];
-    tax = json['tax'];
+    tax = json['tax'].toString();
     lastStock = json['lastStock'];
     changetime = json['changetime'];
     supplierdescription = json['supplierdescription'];
@@ -126,7 +126,48 @@ class Data {
     }
     return data;
   }
+
+  Map<String, dynamic> toJsonDB() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['descriptionLong'] = this.descriptionLong;
+    data['tax'] = this.tax;
+    return data;
+  }
+
+
 }
+/*class Data1 {
+  String? id;
+  String? name;
+  String? descriptionLong;
+  String? tax;
+  Data1(
+  {this.id,
+  this.name,
+  this.descriptionLong,
+  this.tax,
+    });
+  Data1.fromJson(Map<dynamic, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    descriptionLong = json['descriptionLong'];
+    tax = json['tax'];
+  }
+  Map<dynamic, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['descriptionLong'] = this.descriptionLong;
+    data['tax'] = this.tax;
+    return data;
+  }
+
+
+}
+
+ */
 
 class MainDetail {
   String? number;
